@@ -1,0 +1,35 @@
+{
+    "name": "blog",
+    "scope": "itsmingjie",
+    "build": {
+        "env": {
+            "GHOST_API_URL": "https://blog-api.mingjie.info",
+            "GHOST_CONTENT_API_KEY": "1eef3898d10d07fef1af693936",
+            "SITE_URL": "https://blog.mingjie.info"
+        }
+    },
+    "routes": [
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/admin",
+            "status": 302,
+            "headers": {
+                "Location": "https://blog-api.mingjie.info"
+            }
+        },
+        {
+            "src": "/ghost",
+            "status": 302,
+            "headers": {
+                "Location": "https://blog-api.mingjie.info"
+            }
+        },
+        {
+            "src": "/(.*)",
+            "status": 404,
+            "dest": "/404.html"
+        }
+    ]
+}
