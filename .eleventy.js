@@ -6,6 +6,7 @@ const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const localImages = require("eleventy-plugin-local-images");
 const lazyImages = require("eleventy-plugin-lazyimages");
 const ghostContentAPI = require("@tryghost/content-api");
+const dateFilter = require('nunjucks-date-filter');
 
 const htmlMinTransform = require("./src/transforms/html-min-transform.js");
 
@@ -57,6 +58,8 @@ module.exports = function(config) {
   config.addFilter("htmlDateString", dateObj => {
     return new Date(dateObj).toISOString().split("T")[0];
   });
+
+  config.addFilter('date', dateFilter);
 
   // Don't ignore the same files ignored in the git repo
   config.setUseGitIgnore(false);
@@ -112,6 +115,7 @@ module.exports = function(config) {
     return collection;
   });
 
+  /**
   // Get all authors
   config.addCollection("authors", async function(collection) {
     collection = await api.authors
@@ -147,6 +151,8 @@ module.exports = function(config) {
 
     return collection;
   });
+
+  */
 
   // Get all tags
   config.addCollection("tags", async function(collection) {
