@@ -16,14 +16,14 @@
             "src": "/admin",
             "status": 302,
             "headers": {
-                "Location": "https://blog-api.mingjie.info"
+                "Location": "https://blog-api.mingjie.info/ghost"
             }
         },
         {
             "src": "/ghost",
             "status": 302,
             "headers": {
-                "Location": "https://blog-api.mingjie.info"
+                "Location": "https://blog-api.mingjie.info/ghost"
             }
         },
         {
